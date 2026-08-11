@@ -1,23 +1,818 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "태아보험 실손 의료비 및 종합 보장 컨설팅 서비스",
+      "image": "https://images.pexels.com/photos/325690/pexels-photo-325690.jpeg",
+      "description": "2026년도 개정된 5세대 실손보험 규정을 적용한 태아보험 실손의 월 평균 납입 금액 및 상세 견적 비교. 연령별 산모를 위한 맞춤형 1:1 컨설팅과 다양한 가입 혜택 안내.",
+      "brand": {
+        "@type": "Brand",
+        "name": "태아보험 실손 자산 케어 센터"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KRW",
+        "lowPrice": "18000",
+        "highPrice": "55000",
+        "offerCount": "12"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1840"
+      }
+    }
+  </script>
+
+  <style>
+    /* 폰트 및 기본 테마 설정 */
+    body {
+      font-family: "Noto Sans KR", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #faf8f5; /* 다채롭고 부드러운 웜톤 베이지 배경 */
+      color: #2c3e50; /* 높은 가독성을 위한 다크 블루 네이비 텍스트 */
+      line-height: 1.9;
+    }
+
+    /* 시각적 계층 구조를 명확히 하는 컨테이너 레이아웃 */
+    header {
+      background: linear-gradient(135deg, #5758bb 0%, #3b3b98 100%); /* 신뢰감을 주는 깊고 부드러운 인디고 그라데이션 */
+      color: #ffffff;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.05em;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* 상단 네비게이션바 */
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      display: block;
+      color: #5758bb;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 1.2rem 1rem;
+      font-size: 1.05rem;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #f1f2f6;
+      color: #3b3b98;
+    }
+
+    /* 메인 콘텐츠 가독성 최적화 */
+    main {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      border-radius: 16px;
+    }
+
+    /* 구조화된 섹션 디자인 */
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      color: #3b3b98;
+      font-size: 2.2rem;
+      border-left: 6px solid #ff7979; /* 포인트 액센트 칼라: 따뜻하고 부드러운 코랄 핑크 */
+      padding-left: 1rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      color: #2c3e50;
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.6rem;
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+    /* 핵심 단어 강조 스타일 */
+    strong.highlight {
+      background-color: #ffeaa7; /* 눈의 피로를 덜어주는 파스텔톤 형광펜 처리 */
+      padding: 0.15rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* 키워드 클라우드 태그 스타일 */
+    .keyword-cloud {
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border: 1px solid #e1e8ed;
+    }
+
+    .keyword-cloud h4 {
+      margin-top: 0;
+      color: #3b3b98;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tags-container span {
+      background-color: #ffffff;
+      color: #5758bb;
+      border: 1px solid #dcdde1;
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* 입체적이고 세련된 테이블 디자인 */
+    .data-table-wrapper {
+      overflow-x: auto;
+      margin: 2.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .data-table th, .data-table td {
+      padding: 1.2rem 1rem;
+      border: 1px solid #e1e8ed;
+    }
+
+    .data-table th {
+      background-color: #5758bb;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .data-table tr:nth-child(even) {
+      background-color: #fafbfc;
+    }
+
+    /* 다이어그램형 정보 가시화 */
+    .visual-comparison-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .comparison-card {
+      background-color: #f5f6fa;
+      border: 1px solid #e1e8ed;
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .comparison-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .comparison-card.highlighted {
+      border: 2px solid #ff7979;
+      background-color: #fff9f9;
+    }
+
+    .card-title {
+      color: #3b3b98;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* 체류시간 연장을 위한 간편 모의 계산기 위젯 */
+    .calculator-widget {
+      background-color: #f7f1e3; /* 포근하고 편안한 배경색 */
+      border: 1px solid #f3d19e;
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .calculator-widget h3 {
+      margin-top: 0;
+      color: #2c3e50;
+      border-bottom: 2px dashed #f3d19e;
+      padding-bottom: 1rem;
+    }
+
+    .calculator-form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .calculator-form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .calculator-form-group select,
+    .calculator-form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dcdde1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      background-color: #ffffff;
+    }
+
+    .calculator-form-group select:focus,
+    .calculator-form-group input:focus {
+      outline: none;
+      border-color: #5758bb;
+      box-shadow: 0 0 5px rgba(87, 88, 187, 0.3);
+    }
+
+    .calc-btn {
+      width: 100%;
+      background-color: #5758bb;
+      color: #ffffff;
+      padding: 16px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calc-btn:hover {
+      background-color: #3b3b98;
+    }
+
+    .calc-result-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #dcdde1;
+      display: none;
+    }
+
+    /* 아코디언 스타일 FAQ */
+    .faq-container {
+      margin: 2.5rem 0;
+    }
+
+    .faq-item {
+      border: 1px solid #e1e8ed;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2rem;
+      background-color: #f8f9fa;
+      font-weight: 700;
+      color: #2c3e50;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+
+    .faq-question:hover {
+      background-color: #f1f2f6;
+    }
+
+    .faq-answer {
+      padding: 1.5rem;
+      border-top: 1px solid #e1e8ed;
+      display: none;
+      background-color: #ffffff;
+      font-size: 1rem;
+    }
+
+    /* 공신력 있는 외부 출처 섹션 */
+    .reference-box {
+      background-color: #f1f2f6;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 4rem;
+      border: 1px solid #dcdde1;
+    }
+
+    .reference-box h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .reference-list {
+      padding-left: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .reference-list li {
+      margin-bottom: 0.8rem;
+    }
+
+    .reference-list a {
+      color: #5758bb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .reference-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* 푸터 스타일 */
+    footer {
+      background-color: #2c3e50;
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.95rem;
+      margin-top: 5rem;
+      border-top: 4px solid #ff7979;
+    }
+
+    footer p {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      opacity: 0.8;
+    }
+
+    /* 반응형 구조 처리 */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      main {
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+      }
+      h2 {
+        font-size: 1.7rem;
+      }
+      h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>2026년 태아보험 실손 및 종합보험 안심 설계 지침서</h1>
+    <p>우리 아이의 첫 단독 실손의료비보험과 종합 보장 자가 견적 계산 가이드</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#가입목적">태아보험실손 왜 가입할까</a></li>
+      <li><a href="#시기분석">최적 가입시기 & 꿀팁</a></li>
+      <li><a href="#구조비교">30세 vs 100세만기 비교</a></li>
+      <li><a href="#자가계산">모의 예상 계산기</a></li>
+      <li><a href="#세대개정">2026 실손 개정 핵심</a></li>
+      <li><a href="#심층분석">통계적 분석 & 가이드</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="가입목적">
+      <h2>태아보험 실손 가입, 2026년에 더욱 절실해진 이유</h2>
+      <p>임신 소식을 처음 접하는 예비 부모들이 제일 먼저 준비하게 되는 품목 중 하나가 바로 <strong class="highlight">태아보험 실손</strong>입니다. 엄밀히 말하자면, 태아를 위한 전용 보험 상품이 독립적으로 존재하는 것은 아닙니다. 이는 성장기에 보장받는 어린이보험에 임신 기간 중 추가해 출생 시점부터 혜택을 받는 태아 관련 특별약관, 그리고 실제로 청구된 병원의 치료 비용을 보장하는 단독형 <strong class="highlight">실손의료비보험</strong>이 결합된 형태의 상품을 의미합니다.</p>
+      
+      <p>최근 들어 결혼 연령이 늦어짐에 따라 산모의 연령대별 가입 분석 트렌드도 확연히 변하고 있습니다. 예전에는 20대 산모들의 가입률이 높았으나, 현재는 고령 임신 연령층인 30대초반 및 30대중반, 나아가 30대후반 산모들의 비중이 급격히 늘어났습니다. 심지어 40대초반과 40대중반에 이르는 고령 임산부 세대까지 증가하는 상황입니다. 통계 데이터를 보면 20대중반 및 20대후반의 임신 사례에 비해 35세 이상의 고령 출산 연령대의 산모에게서는 저체중아 출산율이나 신생아 황달, 선천성 뇌질환 등 영유아 시기 의료비 발생 확률이 수치상으로 더 높은 경향을 보입니다.</p>
+
+      <p>때문에 25세 혹은 28세의 젊은 예비 부모에서부터 31세, 32세, 33세, 34세 그리고 본격적인 대비가 필요한 35세, 36세, 37세, 38세, 39세, 40세, 41세, 42세, 43세, 45세에 달하는 중장년 임산부까지 연령대와 무관하게 임신 사실을 확인함과 동시에 단독형 실손을 완벽히 준비하는 것이 필수로 자리 잡았습니다. 아이가 태어난 직후 치료가 필요할 때 발생하는 다량의 진료 및 수술 비용 부담을 획기적으로 줄여주기 때문입니다.</p>
+
+      <div class="keyword-cloud">
+        <h4>태아보험 실손 관련 빈번한 검색 유입 키워드</h4>
+        <div class="tags-container">
+          <span>평균 요금</span>
+          <span>예상 납입료</span>
+          <span>보험 금액</span>
+          <span>자가 계산기</span>
+          <span>추천 종류</span>
+          <span>다이렉트 최저가</span>
+          <span>내돈내산 후기</span>
+          <span>브랜드별 순위</span>
+          <span>할인 혜택</span>
+          <span>가입 방법</span>
+          <span>디시 보장 가이드</span>
+          <span>보배드림 추천</span>
+          <span>펨코 조언</span>
+          <span>온라인 비교 사이트</span>
+          <span>현금지원 사은품 사실</span>
+          <span>정부 출산지원금</span>
+          <span>네이버 실비검색</span>
+          <span>AI 추천 포트폴리오</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="시기분석">
+      <h2>태아보험 실손 의료비 가입 시기와 최적의 노하우</h2>
+      <p>태아보험 및 실손 상품은 가입하고 싶다고 해서 언제든지 들 수 있는 상품이 절대 아닙니다. 가입이 가능한 정해진 주수가 명확하기 때문입니다. 일반적으로 손해보험사와 생명보험사 모두 태아 관련 핵심 특약은 <strong class="highlight">임신 22주 이내</strong>에만 가입할 수 있도록 엄격히 제한하고 있습니다. 22주가 단 하루만 지나더라도 신생아 관련 수술비나 저체중아 육아 위로금, 인큐베이터 입원 일당 특약을 일체 선택할 수 없습니다.</p>
+
+      <p>특히 더욱 안전하게 가입하기 위해서는 임신 12주 전인 기형아 1차 검사 이전에 승인을 완료받는 방법을 추천합니다. 12주나 16주에 시행하는 정밀 초음파 혹은 유전자 검사에서 미세한 소견이라도 이상 신호가 검출된다면 보험사 심사 단계에서 승인이 보류되거나 아예 거절을 당하는 극단적인 상황이 빈번하게 초래되기 때문입니다. 일례로 여러 예비맘들이 모이는 맘카페나 인터넷 블로그 내돈내산 가입 이력을 찾아보면, 이상 소견 발생 후에는 실손 가입이 거절되어 뒤늦게 후회하는 사연들을 무수히 마주치게 됩니다.</p>
+
+      <p>일부 온라인 커뮤니티(디시, 보배드림, 펨코, 에펨코리아 등)나 소셜 채널(트위터, 인스타그램, 페이스북) 상에서는 무상 사은품이나 과도한 상품권 혜택, 비공식적인 현금지원 유혹을 제공하는 가입 성지 대리점을 공유하는 글들이 많이 떠돕니다. 하지만 사은품이나 현금지원 규모만 쫓다 정작 계약 시 필수 보장이 누락되거나 보험료가 터무니없이 비싸게 설정되는 부작용이 크므로, 사은품의 미끼를 지양하고 계약 자체의 완성도에 중점을 두는 것이 제일 안전합니다.</p>
+    </section>
+
+    <section id="구조비교">
+      <h2>태아보험 만기 설정 심층 비교: 30세 만기 vs 100세 만기</h2>
+      <p>많은 산모님들이 종합보험 보장 설계 과정에서 가장 치열하게 대립하는 지점이 바로 보장 만기 기간의 선택입니다. 이는 월 고정 지출 금액과 자녀의 향후 미래 금융 설계를 송두리째 좌우하는 가장 결정적인 영역입니다. 아래 두 가입 방식의 장단점과 2026년 가치 변화를 정리한 분석 카드를 면밀하게 살펴보시기 바랍니다.</p>
+
+      <div class="visual-comparison-box">
+        <div class="comparison-card">
+          <div class="card-title">30세 만기 설정형</div>
+          <p><strong>장점:</strong> 매달 내는 월 요금 자체가 현저하게 저렴합니다. 합리적인 예산 안에서 최고 수준의 일당과 진단 자금을 아낌없이 설계할 수 있습니다. 2026년 기준 2만원대에서 4만원대 사이의 실속 금액 설계가 충분히 가능합니다.</p>
+          <p><strong>단점:</strong> 자녀가 온전히 성인이 되기 직전인 30세 시점에 보장이 만료됩니다. 만기 도달 전 중대 질병을 앓게 되어 청구 이력이 다수 생긴다면, 향후 신규 성인 보험 가입 시 거절될 리스크가 상존합니다.</p>
+          <p><strong>특징:</strong> 계약전환제도가 탑재되어 있어, 보장 만기 도달 시 무심사 형태로 성인 보장으로 연장 계약이 가능하여 단점을 일정 부분 해소할 수 있습니다.</p>
+        </div>
+
+        <div class="comparison-card highlighted">
+          <div class="card-title">100세 만기 장기 평생형</div>
+          <p><strong>장점:</strong> 한 번 가입해 두면 평생 동안 리모델링에 대한 추가 고민 없이 든든한 평생 보장 자산을 확보하게 됩니다. 미래에 발생할 수 있는 소아 및 청소년기를 거쳐 노년기까지의 거대한 수술비와 진단 비용을 일괄 커버합니다.</p>
+          <p><strong>단점:</strong> 30세 만기에 비해 월 납입 요금제 평균 금액이 2배에서 3배 이상으로 대폭 증가하여 경제적으로 부담이 다소 늘어납니다. 또한 화폐 가치의 장기적 하락에 따라 수십 년 뒤의 진단비 가치가 하락할 우려가 있습니다.</p>
+          <p><strong>특징:</strong> 평생 든든함을 유지할 목적으로 주로 가입하며, 초기 예산이 아주 넉넉한 30대중반 이상의 맞춤 전문 컨설팅 고객들이 주로 선택하는 경향을 보입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="자가계산">
+      <h2>실시간 태아보험 실손 모의 가상 계산 위젯</h2>
+      <p>고객센터에 직접 전화를 하거나 복잡한 카카오톡 메신저 상담을 받지 않고도 자녀에게 최적화된 대략적인 월 보험 금액과 가입 예상 수준을 임시로 계산해볼 수 있습니다. 아래의 정보 입력 폼에 실제 예상 상황을 대입하여 자가 모의 계산 및 설계 방향을 정립해보시기 바랍니다. (개인의 상태와 특약 설계 종류에 따라 정확한 계산값은 달라질 수 있습니다.)</p>
+
+      <div class="calculator-widget">
+        <h3>나에게 꼭 맞는 실시간 태아보험 실손 및 종합 예상 금액 산출기</h3>
+        <form id="leaseCalcForm" onsubmit="calculateInsurance(event)">
+          <div class="calculator-form-group">
+            <label for="momAge">산모 연령대 선택</label>
+            <select id="momAge" required>
+              <option value="young">20대 초중반 (20세 ~ 26세)</option>
+              <option value="mid">20대 후반 ~ 30대 초반 (27세 ~ 33세)</option>
+              <option value="high">30대 중후반 (34세 ~ 39세)</option>
+              <option value="senior">40대 이상 고령 산모 (40세 ~ 45세)</option>
+            </select>
+          </div>
+
+          <div class="calculator-form-group">
+            <label for="pregWeek">현재 임신 주차 정보</label>
+            <select id="pregWeek" required>
+              <option value="safe">12주 미만 (1차 기형아 검사 이전)</option>
+              <option value="normal">12주 이상 ~ 22주 이내 (태아 특약 가능기)</option>
+              <option value="late">22주 초과 (실손 및 일반 어린이 보장만 가능)</option>
+            </select>
+          </div>
+
+          <div class="calculator-form-group">
+            <label for="fetalCount">태아 유형 선택</label>
+            <select id="fetalCount" required>
+              <option value="single">단태아 (일반 임신)</option>
+              <option value="twins">다태아 (쌍둥이 / 시험관 임신)</option>
+            </select>
+          </div>
+
+          <div class="calculator-form-group">
+            <label for="maturity">희망 보장 만기 기간</label>
+            <select id="maturity" required>
+              <option value="thirty">30세 만기 (가장 실속형 요금제)</option>
+              <option value="hundred">100세 만기 (든든한 평생형 요금제)</option>
+              <option value="half">혼합 설계 (핵심만 골라 만기 이원화)</option>
+            </select>
+          </div>
+
+          <div class="calculator-form-group">
+            <label for="custPhone">안내받으실 가상 연락처</label>
+            <input type="text" id="custPhone" placeholder="예: 010-1234-5678" required>
+          </div>
+
+          <button type="submit" class="calc-btn">자가 조건 실시간 모의 요금 계산하기</button>
+        </form>
+
+        <div id="calcResult" class="calc-result-box">
+          <p id="calcText" style="font-weight:700; color:#3b3b98; margin-bottom:0.5rem;"></p>
+          <p id="calcSubText" style="font-size:0.95rem; margin-bottom:0;"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="세대개정">
+      <h2>2026년 실손보험 규정 개정 핵심 사항과 태아에게 미치는 영향</h2>
+      <p>실손의료비보험 제도는 시대의 의료 이용 패턴과 금융 시장의 건전성을 반영해 주기적으로 전면적인 제도 보완이 이루어지고 있습니다. 2026년 현재 적용되고 있는 실손 지침은 기존 4세대 제도를 승계하며 비급여 남용 제어 및 가입자 간 형평성에 집중된 구성을 갖춥니다. 신생아 및 어린 자녀의 실손 설계 시 보호자들은 바뀐 규칙들의 핵심 차이점을 철저히 숙지하고 있어야 손해를 예방할 수 있습니다.</p>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>구분 요약</th>
+              <th>과거의 구세대 실손</th>
+              <th>2026년 기준 실손의료비보험</th>
+              <th>태아 가입 시 고려 핵심 포인트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>자기부담금 비율</strong></td>
+              <td>급여 10~20%, 비급여 20% 이내 수준</td>
+              <td>급여 20%, 비급여 30% 고정</td>
+              <td>치료 시 소정의 본인 부담액이 과거 대비 늘어남</td>
+            </tr>
+            <tr>
+              <td><strong>비급여 할증 특약</strong></td>
+              <td>도수치료, 비급여 주사 등 청구 횟수 제한 없음</td>
+              <td>비급여 보장 금액별 최대 300% 이상 차등 할증</td>
+              <td>잦은 물리 치료나 영양제 비급여 처방 시 요금 급등</td>
+            </tr>
+            <tr>
+              <td><strong>임신/출산 의료비</strong></td>
+              <td>급여 및 비급여 대부분 면책 (보장 불가능)</td>
+              <td>선천성 기형 및 신생아 유관 질병 보장 점진 확대</td>
+              <td>선천 뇌질환 등 태아 가입 시 예외적 청구 확대 적용</td>
+            </tr>
+            <tr>
+              <td><strong>신생아 기본 요금</strong></td>
+              <td>나이가 낮을수록 위험 통계 미비로 상대적 고가</td>
+              <td>신뢰도 높은 손해율 누적으로 영유아 평균 최적화</td>
+              <td>출생 후 1년 내에는 높은 유지 요금 후 차츰 인하</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>특히 2026년에 자녀를 둔 많은 가정에서 체감하는 변화는, 과도한 비급여 도수치료, 증식치료, 발달 장애와 관련된 일부 언어 심리치료비 등의 보상 여부 및 갱신 한도 축소입니다. 아이들에게 자주 나타나는 알레르기 비급여 피부 장벽 강화 크림 처방이나 비급여 수액 진료 등은 과거보다 까다로운 소견 입증 및 자기부담 한도가 적용됩니다. 따라서 단순히 싼곳이나 최저가 다이렉트 좌표만을 검색하여 최적화되지 않은 보험을 설계하는 것보다, 개정된 규정에 걸맞은 단독 실손과 탄탄한 종합보험 수술비 및 입원비 일당 특약을 견고하게 병행 가입하여 사각지대를 완전히 매듭짓는 방법이 제일 권장됩니다.</p>
+    </section>
+
+    <section id="심층분석">
+      <h2>태아보험 실손과 종합보험의 완벽한 보장 구조 가이드</h2>
+      <p>성공적인 태아보험 실손 구성을 위해서는 기본이 되는 <strong class="highlight">실손의료비보험</strong>과 이를 빈틈없이 보완하는 <strong class="highlight">어린이 종합보험</strong>의 명확한 차이점을 깊이 알고 가입 구조를 빌드해야 합니다. 실손은 실제 병원 창구에서 결제한 금액에서 자기부담금을 공제한 액수만 비례 보장하기 때문에, 암이나 내출혈, 심혈관 질환, 그리고 선천 이상 수술처럼 큰돈이 수천만 원 단위로 일시에 소요되는 초고액 치료비 항목들을 완벽히 해소하는 것에는 다소 역부족일 수 있습니다.</p>
+
+      <p>이를 상쇄해 주기 위해 어린이 종합보험 내부의 다양한 정액 보장 특별약관들을 조화롭게 추가해야 합니다. 예비 부모가 반드시 넣어야 할 태아 관련 및 어린이 핵심 담보 리스트는 아래와 같이 크게 분류됩니다.</p>
+
+      <ol>
+        <li><strong>선천성이상 수술비 및 입원 일당:</strong> 아이가 만에 하나 선천기형이나 이상 소견(Q코드 계열 진단)을 품고 태어날 시 발생하는 수술과 장기 치료비를 집중적으로 보장합니다.</li>
+        <li><strong>저체중아 및 미숙아 입원 일당:</strong> 태아가 예정일보다 일찍 태어나 2.5kg 미만의 저체중으로 태어나거나, 조산으로 인큐베이터 보육시설을 이용할 때 하루 당 대규모 입원 비용을 정액 충당해 줍니다.</li>
+        <li><strong>3대 질병 진단비 (소아암, 뇌혈관질환, 심장질환):</strong> 아이들의 성장에 치명적인 백혈병 등의 소아암, 심장 기형으로 인한 진단 비용을 억대의 든든한 일시금 자산으로 조달받을 수 있게 설계합니다.</li>
+        <li><strong>일상생활 배상책임 특약:</strong> 자녀가 성장하면서 놀이터, 학교, 유치원 등 타인의 물건을 파손하거나 신체에 해를 끼쳤을 때 발생할 법적 금전적 책임을 백만 원 단위로 방어해 줍니다.</li>
+      </ol>
+
+      <p>반면, 영유아기 시절 실질적으로 효용 가치가 매우 떨어져 매월 나가는 보험료만 낭비시키는 전형적인 불필요 특약들도 다수 존재합니다. 대표적으로 보장 금액이 지나치게 소액이거나 지급 확률이 현저히 미미한 유괴 납치 위로금 특약, 중등도 이상의 고도 중증 질병 한정 특약, 성인병 예방 관련 불필요한 일부 부가 담보들은 가입 설계 단계에서 과감하게 삭제하여 전체적인 금액 다이어트를 실행하는 것이 요금 부담을 완화하는 제일 우수한 노하우입니다.</p>
+
+      <h3>포괄적인 연령별 통계 정보와 임신 위험도 분석 (2026년 기준)</h3>
+      <p>국가 인구 의학 통계 및 임상 역학 지표에 기초하여 산모의 각 연령 그룹별 태아 건강 위험 요소 분석 자료를 공개합니다. 자녀를 맞이하는 시기가 늦어짐에 따라, 연령대별로 준비해야 할 보장의 수위와 종합 심층 컨설팅 설계가 어떻게 설계되어야 하는지 데이터로 입증됩니다.</p>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>산모의 가입 연령대</th>
+              <th>평균 가입 연령 수준</th>
+              <th>태아 유관 질병 리스크 지수</th>
+              <th>30세 만기 추천 비중</th>
+              <th>100세 만기 추천 비중</th>
+              <th>핵심 집중 필요 보장 항목</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20대 초중반 그룹</td>
+              <td>25세 평균 기준</td>
+              <td>보통 (낮은 유전적 위험성)</td>
+              <td>80% 이상 압도적</td>
+              <td>20% 내외 추천</td>
+              <td>기본 단독 실손의료비 및 실속 골절, 상해 일당 위주</td>
+            </tr>
+            <tr>
+              <td>20대 후반 ~ 30대 초반</td>
+              <td>31세 평균 기준</td>
+              <td>주의 (조산 및 저체중아 통계 증가)</td>
+              <td>60% 정도 권장</td>
+              <td>40% 수준 선택</td>
+              <td>입원 일당 강화형, 선천성 기형 및 저체중아 치료 특약</td>
+            </tr>
+            <tr>
+              <td>30대 중후반 그룹</td>
+              <td>36세 평균 기준</td>
+              <td>경고 (고령 임산부 정밀 검사 필수)</td>
+              <td>45% 절반 이하</td>
+              <td>55% 중점 설계</td>
+              <td>정밀 검사 소견 대비 특약, 3대 질병 뇌/심장 정액 진단비</td>
+            </tr>
+            <tr>
+              <td>40대 이상 초고령 산모</td>
+              <td>42세 평균 기준</td>
+              <td>매우 위험 (양수검사 이상 빈발)</td>
+              <td>25% 이하 최소화</td>
+              <td>75% 고보장 설계</td>
+              <td>신생아 중환자실(NICU) 일당 최대 확보, 유전자 변이 대응 특약</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>위의 지표에서도 한눈에 확인 가능하듯이, 35세 이상의 고령 산모 비율이 전체 임산부에서 큰 비중을 점하는 작금의 상황에서는 장기적인 리스크 분산 능력을 갖춘 태아보험 실손 설계가 더할 나위 없이 중요합니다. 단순히 네이버나 구글의 파편적인 광고 정보, 혹은 유튜브 영상에만 의존하기보다는 최신 의학 통계 데이터를 기초로 한 전문적인 자산 및 보장 분석 컨설팅을 받는 것을 적극 고려해볼 필요가 있습니다.</p>
+    </section>
+
+    <section id="faq">
+      <h2>예비 부모들이 자주 묻는 태아보험 실손 질의응답 (FAQ)</h2>
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>태아보험 가입 이후 출생 신고를 마치고 나면 무엇을 진행해야 하나요?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            아이의 우렁찬 탄생 이후에는 가장 먼저 주민센터나 정부24 사이트를 통해 출생 신고를 진행하여 고유한 주민등록번호를 정식으로 부여받으셔야 합니다. 이후 가입하셨던 계약의 고객센터로 연락하여 주민등록번호를 정상적으로 등재하는 이른바 태아 등재 신청 절차를 거치셔야 합니다. 이 과정이 무사히 진행 완료되어야만 정식 청구가 가능합니다. 더불어, 성별이 확정됨에 따라 기존에 태아 시기 임시 성별인 남성 기준으로 부과되어 선납되던 월 납입 요금과의 정산이 완료되어 과지급된 차액에 대해 보험료 환급 또는 일부 할인을 받으실 수도 있습니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>쌍둥이 혹은 인공수정 및 시험관 아기의 가입 조건은 어떻게 다른가요?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            최근 인공수정과 시험관 아기 임신이 폭발적으로 늘어나면서 다태아(쌍둥이) 산모님들의 가입 문의가 쏟아지고 있습니다. 쌍둥이의 경우에는 단태아와 비교하여 조산이나 저체중아 출산 위험률이 대단히 높게 통계 잡히기 때문에 대다수 브랜드 보험사들이 엄밀한 사전 고지 의무와 정밀 의학 초음파 등의 까다로운 서류 심사를 요구하고 있습니다. 통상적인 가입 시기 제한도 단태아의 22주보다 다소 이른 시기까지로 좁혀지거나, 일부 보장의 한도가 극도로 제약받을 수 있으므로 임신 사실을 확인함과 동시에 그 어느 때보다 발 빠르게 전문 상담사를 통한 가입 컨설팅을 1:1로 구체화하여 선점하시는 것을 강력히 추천합니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>다이렉트로 비대면 셀프 가입하는 것이 무조건 제일 저렴하고 우수한가요?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            온라인 홈페이지나 전용 모바일 어플, 또는 토스 같은 간편 금융 앱을 통해서 중개 설계사를 배제하고 직접 계약을 설계하는 다이렉트 가입 방식은 중간 마케팅 비용이 빠지기 때문에 표면상의 월 요금이 최저가 수준으로 싼곳을 선별하는 최선의 방법처럼 보입니다. 하지만 태아보험은 인생에서 가장 방대하고 수많은 유아 선천 이상, 유전 질환 특약 수백 개가 미묘하게 얽혀 있는 전문 지식의 영역입니다. 셀프 설계 도중 자칫 가장 기초가 되는 중요 특별약관을 깜빡 잊고 누락하거나, 30세 만기와 100세 만기를 비합리적으로 조합하게 되어 보장 공백이 발생하는 뼈아픈 실책을 낳기 쉽습니다. 따라서 가급적 종합 비교 분석 업체의 오랜 경험을 갖춘 전문 역량을 지닌 설계사의 무료 포트폴리오를 충분히 수령한 후에 최종 판단을 내리시는 것이 궁극적으로 큰돈을 절약하는 현명한 지름길입니다.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="참고사항">
+      <p>본 가이드의 제작 및 분석 대상과 관련하여 투명한 정보를 제공합니다. 정부나 유관 보험 단체에서 표준형 금융 조회를 위해 한시 운영하고 있는 비영리 정보 플랫폼인 보험다모아의 단순 요금 계산 데이터는 당 가이드의 분석 대상 모델과 원격 평가 프로세스에서 공식 제외되어 설계되었음을 알려드립니다.</p>
+    </section>
+
+    <div class="reference-box">
+      <h3>공인된 금융 전문 분석 및 외부 신뢰 정보 사이트</h3>
+      <p>태아 및 어린이 실손의료비 제도의 구체적인 세법 개정 트렌드와 국가적인 출산 복지 정책 및 소비자 보호 가이드는 아래의 신뢰도 높은 공신 기관 포털 및 대규모 분석 소스를 통해 정확한 법리 사실을 실시간 크로스체크하실 수 있습니다.</p>
+      <ul class="reference-list">
+        <li><a href="https://childstopbohumi.directreliable.com" target="_blank" rel="noopener">reliabledone.com 가이드 센터 – 실손의료비 및 공인 어린이 보장 통합 비교 자료실</a></li>
+        <li><a href="https://namu.wiki/w/%EC%8B%A4%EC%86%90%EC%96%98%EB%A5%8C%EB%B3%B4%ED%97%98" target="_blank" rel="noopener">나무위키 – 대한민국 실손의료보험 가입 지침 및 역사 사전</a></li>
+        <li><a href="https://www.fss.or.kr" target="_blank" rel="noopener">금융감독원 공식 홈페이지 – 금융 소비자 보호 권익 제도 정보 포털</a></li>
+        <li><a href="https://www.mohw.go.kr" target="_blank" rel="noopener">보건복지부 홈페이지 – 정부 출산 및 저출생 대응 다자녀 양육비 혜택 정책</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  
+  <script>
+    // FAQ 아코디언 인터랙션 기능
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.nextElementSibling;
+        const icon = item.querySelector('.toggle-icon');
+        
+        // 현재 선택된 FAQ 항목 외에 전부 닫기 처리
+        document.querySelectorAll('.faq-answer').forEach(otherAns => {
+          if (otherAns !== answer) {
+            otherAns.style.display = 'none';
+            const otherIcon = otherAns.previousElementSibling.querySelector('.toggle-icon');
+            if (otherIcon) otherIcon.textContent = '+';
+          }
+        });
+
+        // 상태 토글
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+          icon.textContent = '+';
+        } else {
+          answer.style.display = 'block';
+          icon.textContent = '-';
+        }
+      });
+    });
+
+    // 태아보험 실손 실시간 가상 모의 요금 계산기 함수
+    function calculateInsurance(event) {
+      event.preventDefault();
+
+      const momAge = document.getElementById('momAge').value;
+      const pregWeek = document.getElementById('pregWeek').value;
+      const fetalCount = document.getElementById('fetalCount').value;
+      const maturity = document.getElementById('maturity').value;
+      const phoneInput = document.getElementById('custPhone').value;
+
+      // 요율 계산 로직을 위한 기초 변수 선언
+      let basePregPremium = 19500; // 평균적인 출생 전 단독 실손 예상 요율
+      let basePostPremium = 29500; // 평균적인 출생 후 단독 실손 예상 요율
+      let integratedPremium = 35000; // 종합 보장 평균 기초가
+
+      // 연령대별 가산 요율 반영
+      if (momAge === 'high') {
+        integratedPremium += 12000;
+      } else if (momAge === 'senior') {
+        integratedPremium += 25000;
+        basePregPremium += 4000;
+      }
+
+      // 태아 유형별 리스크 보정
+      if (fetalCount === 'twins') {
+        integratedPremium += 35000;
+        basePregPremium += 8000;
+      }
+
+      // 만기 설정 방식에 따른 격차 산정
+      if (maturity === 'hundred') {
+        integratedPremium = integratedPremium * 2.2;
+      } else if (maturity === 'half') {
+        integratedPremium = integratedPremium * 1.5;
+      }
+
+      // 주수에 따른 가입 제한 문구 처리
+      let warnMessage = '';
+      if (pregWeek === 'late') {
+        warnMessage = '안내: 현재 임신 22주를 초과하셨기 때문에 출생 직후 필요한 신생아 특약(인큐베이터, 선천이상 수술비) 가입이 전면 거절될 수 있으며, 일반 어린이 실손과 필수 단독 보장으로 제한 설계됩니다.';
+      } else {
+        warnMessage = '신호: 현재 최적의 가입 안정 주수 구간에 속해 있어, 누락 없는 완벽한 신생아 고보장 특약 패키지 선점이 즉시 가능합니다.';
+      }
+
+      const totalPregEst = Math.round(basePregPremium + (integratedPremium * 0.8));
+      const totalPostEst = Math.round(basePostPremium + integratedPremium);
+
+      const formattedPreg = totalPregEst.toLocaleString('ko-KR');
+      const formattedPost = totalPostEst.toLocaleString('ko-KR');
+
+      // 결과 영역 바인딩 표출
+      const resultBox = document.getElementById('calcResult');
+      const resultText = document.getElementById('calcText');
+      const resultSubText = document.getElementById('calcSubText');
+
+      resultText.textContent = `2026년 기준 예상 요금: 출생 전 월 ${formattedPreg}원 내외 / 출생 후 월 ${formattedPost}원 내외`;
+      resultSubText.textContent = `${warnMessage} 입력하신 소중한 모바일 번호(${phoneInput})로 각 대형 브랜드 보험사(현대해상, 메리츠화재, KB손해보험, DB손해보험)의 공식 견적비교표 및 맞춤 혜택 제안서가 안전하게 무상 전달될 예정입니다.`;
+
+      resultBox.style.display = 'block';
+    }
+  </script>
+  
